@@ -73,11 +73,11 @@ def main():
 
     df = pd.concat([df_hybrid, df_baseline])
     
-    print("\n================================================================================")
-    print("MEMORY EFFICIENCY BENCHMARK: Hybrid (20k) vs Baseline (Standard)")
-    print("================================================================================")
-    print(f"{'Class':<12} | {'AP (Hybrid)':<12} | {'AP (Base)':<10} | {'Gap':<6} | {'Mem (H)':<8} | {'Mem (B)':<8}")
-    print("-" * 96)
+    print("\n=======================================================================")
+    print("PERFORMANCE BENCHMARK: Hybrid (20k) vs Baseline (Standard)")
+    print("=======================================================================")
+    print(f"{'Class':<12} | {'AP (Hybrid)':<12} | {'AP (Base)':<10} | {'Gap':<6}")
+    print("-" * 64)
     
     classes = sorted(list(set(df["Class"])))
     
@@ -93,23 +93,19 @@ def main():
         mean_hybrid = hybrid["AP"].mean() if not hybrid.empty else 0
         mean_base = base["AP"].mean() if not base.empty else 0
         
-        mem_hybrid = hybrid["Memory"].mean() if not hybrid.empty else 0
-        mem_base = base["Memory"].mean() if not base.empty else 0
-        
         if not hybrid.empty: total_hybrid_ap.append(mean_hybrid)
         if not base.empty: total_base_ap.append(mean_base)
         
         gap = mean_hybrid - mean_base
-        status = "WIN" if gap > 0 else "LOSS"
         
-        print(f"{cls:<12} | {mean_hybrid:.4f}       | {mean_base:.4f}     | {gap:+.4f} | {int(mem_hybrid):<8} | {int(mem_base):<8}")
+        print(f"{cls:<12} | {mean_hybrid:.4f}       | {mean_base:.4f}     | {gap:+.4f}")
         
-    print("-" * 96)
+    print("-" * 64)
     if total_hybrid_ap and total_base_ap:
         global_hybrid = np.mean(total_hybrid_ap)
         global_base = np.mean(total_base_ap)
-        print(f"Total Avg    | {global_hybrid:.4f}       | {global_base:.4f}     | {global_hybrid - global_base:+.4f} | {int(df[df['Method']=='Hybrid (20k)']['Memory'].mean()):<8} | {int(df[df['Method']=='Baseline (Standard)']['Memory'].mean()):<8}")
-    print("================================================================================")
+        print(f"Total Avg    | {global_hybrid:.4f}       | {global_base:.4f}     | {global_hybrid - global_base:+.4f}")
+    print("=======================================================================")
 
 if __name__ == "__main__":
     main()

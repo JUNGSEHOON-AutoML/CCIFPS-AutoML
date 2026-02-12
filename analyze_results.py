@@ -74,11 +74,11 @@ def main():
         print("No results found yet.")
         return
 
-    print("================================================================================================================")
-    print("FINAL PAPER RESULTS: Hybrid PatchCore (Greedy + D2)")
-    print("================================================================================================================")
-    print(f"{'Class':<12} | {'Sampler':<8} | {'Mean AP':<8} | {'Std Dev':<8} | {'Runs':<4} | {'Avg Mem':<8} | {'Configuration'}")
-    print("-" * 112)
+    print("=======================================================================================================")
+    print("FINAL PAPER RESULTS: Hybrid PatchCore (Proposed)")
+    print("=======================================================================================================")
+    print(f"{'Class':<12} | {'Mean AP':<8} | {'Std Dev':<8} | {'Runs':<4} | {'Configuration'}")
+    print("-" * 105)
     
     total_mean_ap = []
     
@@ -92,19 +92,17 @@ def main():
         mean_ap = cls_df["AP"].mean()
         std_ap = cls_df["AP"].std()
         n_runs = len(cls_df)
-        sampler = cls_df["Sampler"].iloc[0] # Should be same for all seeds
         config = cls_df["Config"].iloc[0]
-        mean_mem = cls_df["Memory"].mean() if "Memory" in cls_df.columns else 0
         
         total_mean_ap.append(mean_ap)
         
-        print(f"{cls:<12} | {sampler:<8} | {mean_ap:.4f}   | ±{std_ap:.4f}   | {n_runs:<4} | {int(mean_mem):<8} | {config}")
+        print(f"{cls:<12} | {mean_ap:.4f}   | ±{std_ap:.4f}   | {n_runs:<4} | {config}")
 
-    print("-" * 112)
+    print("-" * 105)
     if total_mean_ap:
         global_avg = np.mean(total_mean_ap)
         print(f"Total Average|          | {global_avg:.4f}")
-    print("================================================================================================================")
+    print("=======================================================================================================")
 
 if __name__ == "__main__":
     main()
