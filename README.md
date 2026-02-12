@@ -39,22 +39,6 @@ This script will:
 - Run Seed 1 for quick validation (modify script to run multiple seeds if needed).
 - Automatically analyze and display the results upon completion.
 
-### Analyze Results manually
-If you want to re-analyze existing results:
-
-```bash
-python analyze_results.py
-```
-
-### Validation Tools (in `utils/`)
-- `compare_memory_efficiency.py`: Compares memory usage between Proposed and Baseline methods.
-- `run_variance_check.sh`: Verifies stability across multiple seeds.
-- `run_memory_efficiency_check.sh`: Runs a dedicated memory benchmark.
-
-Example:
-```bash
-python utils/compare_memory_efficiency.py
-```
 
 ## Dataset
 Please place the MVTec AD dataset in a `data/` directory or update the path in `run_experiment.sh`.
