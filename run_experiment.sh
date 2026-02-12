@@ -175,7 +175,7 @@ for CLASS in bottle cable capsule carpet grid hazelnut leather metal_nut pill sc
         
         LOG_NAME="${LOG_NAME_PREFIX}_${CLASS}_Seed${SEED}_${SAMPLER}_tau${TAU}_${LAYER_TAG}_mem${BUDGET_K}k"
         
-        echo "Running ${CLASS}: Seed=${SEED}, ${SAMPLER^^}, τ=${TAU}, ${LAYER_TAG}, B=${BUDGET_K}k"
+        echo "Running ${CLASS}..."
         
         python bin/run_patchcore.py \
             --gpu $GPU_ID --seed $SEED \
@@ -210,5 +210,5 @@ echo ""
 echo "============================================"
 echo "✅ Final Golden Configuration Run Complete!"
 echo "Analyzing Results..."
-python analyze_final_results.py
+python analyze_results.py
 echo "============================================"
