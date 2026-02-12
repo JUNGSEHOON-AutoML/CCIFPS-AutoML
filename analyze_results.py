@@ -77,8 +77,8 @@ def main():
     print("=======================================================================================================")
     print("FINAL PAPER RESULTS: Hybrid PatchCore (Proposed)")
     print("=======================================================================================================")
-    print(f"{'Class':<12} | {'Mean AP':<8} | {'Std Dev':<8} | {'Runs':<4} | {'Configuration'}")
-    print("-" * 105)
+    print(f"{'Class':<12} | {'Mean AP':<8} | {'Std Dev':<8} | {'Runs':<4}")
+    print("-" * 60)
     
     total_mean_ap = []
     
@@ -92,13 +92,12 @@ def main():
         mean_ap = cls_df["AP"].mean()
         std_ap = cls_df["AP"].std()
         n_runs = len(cls_df)
-        config = cls_df["Config"].iloc[0]
         
         total_mean_ap.append(mean_ap)
         
-        print(f"{cls:<12} | {mean_ap:.4f}   | ±{std_ap:.4f}   | {n_runs:<4} | {config}")
+        print(f"{cls:<12} | {mean_ap:.4f}   | ±{std_ap:.4f}   | {n_runs:<4}")
 
-    print("-" * 105)
+    print("-" * 60)
     if total_mean_ap:
         global_avg = np.mean(total_mean_ap)
         print(f"Total Average|          | {global_avg:.4f}")
