@@ -86,7 +86,7 @@ def create_storage_folder(
         while os.path.exists(save_path):
             save_path = os.path.join(project_path, group_folder + "_" + str(counter))
             counter += 1
-        os.makedirs(save_path)
+        os.makedirs(save_path, exist_ok=True)
     elif mode == "overwrite":
         os.makedirs(save_path, exist_ok=True)
 
