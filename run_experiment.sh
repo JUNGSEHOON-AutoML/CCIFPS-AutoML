@@ -7,35 +7,9 @@ export PYTHONNOUSERSITE=1
 export PYTHONPATH=src
 
 
-# =========================================================================================
-# FINAL PAPER VALIDATION: GOLDEN CONFIGURATION (Hybrid Greedy + D2)
-# =========================================================================================
-# This script executes the optimal configuration for each class as determined by the
-# "Grand Tournament" between Greedy and D2 sampling.
-# It runs 3 random seeds (0, 1, 2) to report robust Mean +/- Std AP.
-#
-# Best Configurations based on Tournament Results:
-# Class        | Win      | Config
-# -----------------------------------------------------------
-# bottle       | Greedy   | τ=0.01 L2-3 k=1 B=70k
-# cable        | Greedy   | τ=0.02 L2-3 k=1 B=70k
-# capsule      | Greedy   | τ=0.03 L2-3 k=1 B=50k
-# carpet       | D2       | τ=0.03 L1-2-3 k=1 B=50k
-# grid         | D2       | τ=0.02 L1-2-3 k=1 B=70k
-# hazelnut     | Greedy   | τ=0.02 L1-2-3 k=1 B=70k
-# leather      | Greedy   | τ=0.02 L1-2-3 k=1 B=50k
-# metal_nut    | Greedy   | τ=0.03 L1-2-3 k=1 B=70k
-# pill         | Greedy   | τ=0.01 L1-2-3 k=1 B=30k
-# screw        | D2       | τ=0.01 L1-2-3 k=1 B=70k
-# tile         | Greedy   | τ=0.02 L1-2-3 k=1 B=70k
-# toothbrush   | D2       | τ=0.01 L2-3 k=1 B=50k
-# transistor   | Greedy   | τ=0.02 L2-3 k=1 B=50k
-# wood         | Greedy   | τ=0.01 L1-2-3 k=1 B=30k
-# zipper       | Greedy   | τ=0.01 L1-2-3 k=1 B=70k
-# =========================================================================================
 
 # Set GPU ID
-GPU_ID=0
+GPU_ID=1
 
 # Dataset Path
 # Dataset Path
