@@ -91,6 +91,9 @@ def main():
         
         mean_ap = cls_df["AP"].mean()
         std_ap = cls_df["AP"].std()
+        if pd.isna(std_ap):
+            std_ap = 0.0
+            
         n_runs = len(cls_df)
         
         total_mean_ap.append(mean_ap)

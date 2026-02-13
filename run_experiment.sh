@@ -50,8 +50,8 @@ LOG_NAME_PREFIX="GoldenConfig"
 # Parameters
 KNN=1
 
-# Define seed 1 only for quick validation
-SEEDS=(1)
+# Run 3 seeds for robust Mean +/- Std
+SEEDS=(0 1 2)
 
 echo "Starting Final Golden Configuration Run on GPU ${GPU_ID}..."
 echo "Results will be saved to ${RESULTS_PATH}"
